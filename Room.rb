@@ -30,8 +30,16 @@ class Room
     @songs << song
   end
 
+  def check_in()
+    if @guests.size <= @capacity
+      return true
+    else
+      return false
+    end
+  end
+
   def pay_entry_fee(guest)
-    if guest.cash >= @fee
+    if guest.cash >= @fee && check_in() == true
       guest.remove_cash(@fee)
       return true
     else
