@@ -2,11 +2,16 @@ require("minitest/autorun")
 require("minitest/rg")
 
 require_relative("../Guest")
+require_relative("../Song")
+require_relative("../Room")
 
 class TestGuest < MiniTest::Test
 
   def setup()
-    @guest1 = Guest.new("Stephen", 50)
+    @guest1 = Guest.new("Stephen", 50, "A Little Bit Alexis")
+    @guest2 = Guest.new("Kev", 30, "My Heart Will Go On")
+    @song1 = Song.new("Annie Murphy", "A Little Bit Alexis")
+    @room = Room.new("Aztec Suite", 3, 20)
   end
 
   def test_get_guest_name()
@@ -20,6 +25,11 @@ class TestGuest < MiniTest::Test
   def test_remove_cash()
     @guest1.remove_cash(10)
     assert_equal(40, @guest1.cash)
+  end
+
+  def test_fav_song()
+    @room.add_song(@song1)
+    assert_equal("Yay! My fave!", @guest1.fav_song(@room))
   end
 
 end

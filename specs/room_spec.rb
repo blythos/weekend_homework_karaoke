@@ -9,8 +9,8 @@ class TestRoom < MiniTest::Test
 
   def setup()
     @room = Room.new("Aztec Suite", 3, 20)
-    @guest1 = Guest.new("Kyle", 10)
-    @guest2 = Guest.new("Kev", 30)
+    @guest1 = Guest.new("Kyle", 10, "The Birdie Song")
+    @guest2 = Guest.new("Kev", 30, "My Heart Will Go On")
     @song1 = Song.new("Annie Murphy", "A Little Bit Alexis")
   end
 
@@ -46,7 +46,7 @@ class TestRoom < MiniTest::Test
   def test_check_in__returns_true()
     @room.add_guest(@guest1)
     assert_equal(true, @room.check_in)
-  end 
+  end
 
   def test_pay_entry_fee__return_false()
     assert_equal(false, @room.pay_entry_fee(@guest1))
