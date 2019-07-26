@@ -8,11 +8,15 @@ class Room
   end
 
   def guests_amount()
-    return @guests.length
+    return @guests.size
   end
 
   def add_guest(guest)
     @guests << guest
-  end 
+  end
+
+  def remove_guest(guest)
+    @guests.delete(guest)
+  end
 
 end
