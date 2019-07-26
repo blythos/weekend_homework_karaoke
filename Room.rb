@@ -2,9 +2,10 @@ class Room
 
   attr_reader :name, :capacity
 
-  def initialize(name, capacity)
+  def initialize(name, capacity, fee)
     @name = name
     @capacity = capacity
+    @fee = fee
     @guests = []
     @songs = []
   end
@@ -29,4 +30,12 @@ class Room
     @songs << song
   end
 
+  def pay_entry_fee(guest)
+    if guest.cash >= @fee
+      guest.remove_cash(@fee)
+      return true
+    else
+      return false
+    end
+  end
 end

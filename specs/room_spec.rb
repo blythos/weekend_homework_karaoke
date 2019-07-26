@@ -8,7 +8,7 @@ require_relative("../Song")
 class TestRoom < MiniTest::Test
 
   def setup()
-    @room = Room.new("Aztec Suite", 3)
+    @room = Room.new("Aztec Suite", 3, 20)
     @guest1 = Guest.new("Kyle", 10)
     @guest2 = Guest.new("Kev", 30)
     @song1 = Song.new("Annie Murphy", "A Little Bit Alexis")
@@ -41,6 +41,17 @@ class TestRoom < MiniTest::Test
 
   def test_room_capacity()
     assert_equal(3, @room.capacity)
+  end
+
+  
+
+  def test_pay_entry_fee__return_false()
+    assert_equal(false, @room.pay_entry_fee(@guest1))
+  end
+
+  def test_pay_entry_fee__return_true()
+    assert_equal(true, @room.pay_entry_fee(@guest2))
+    assert_equal(10, @guest2.cash)
   end
 
 
