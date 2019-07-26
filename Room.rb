@@ -5,6 +5,7 @@ class Room
   def initialize(name)
     @name = name
     @guests = []
+    @songs = []
   end
 
   def guests_amount()
@@ -17,6 +18,10 @@ class Room
 
   def remove_guest(guest)
     @guests.delete(guest)
+  end
+
+  def songs_amount()
+    return @songs.size
   end
 
 end

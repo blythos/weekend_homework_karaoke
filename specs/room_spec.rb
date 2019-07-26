@@ -3,6 +3,7 @@ require("minitest/rg")
 
 require_relative("../Room")
 require_relative("../Guest")
+require_relative("../Song")
 
 class TestRoom < MiniTest::Test
 
@@ -26,6 +27,10 @@ class TestRoom < MiniTest::Test
     @room.add_guest(@guest2)
     @room.remove_guest(@guest1)
     assert_equal(1, @room.guests_amount)
+  end
+
+  def test_songs_amount()
+    assert_equal(0, @room.songs_amount)
   end
 
 end
