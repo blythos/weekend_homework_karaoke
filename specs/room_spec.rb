@@ -9,13 +9,13 @@ class TestRoom < MiniTest::Test
 
   def setup()
     @room = Room.new("Aztec Suite", 3, 20)
-    @guest1 = Guest.new("Kyle", 10, "The Birdie Song")
-    @guest2 = Guest.new("Kev", 30, "My Heart Will Go On")
-    @guest3 = Guest.new("Stephen", 40, "A Little Bit Alexis")
     @song1 = Song.new("Annie Murphy", "A Little Bit Alexis")
     @song2 = Song.new("Myss Keta", "Una Donna Che Conta")
     @song3 = Song.new("Ashley O", "Right Where I Belong")
     @song4 = Song.new("Ashley O", "On A Roll")
+    @guest1 = Guest.new("Kyle", 10, @song2)
+    @guest2 = Guest.new("Kev", 30, @song4)
+    @guest3 = Guest.new("Stephen", 40, @song1)
     @guests = [@guest1, @guest2, @guest3]
     @playlist = [@song1, @song2, @song3, @song4]
     @guests.each { |guest| @room.add_guest(guest) }
