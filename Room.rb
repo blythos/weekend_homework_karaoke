@@ -4,8 +4,8 @@ class Room
 
   def initialize(name, capacity, fee)
     @name = name
-    @capacity = capacity
-    @fee = fee
+    @capacity = capacity # Assuming that there will be rooms for bigger parties etc.
+    @fee = fee # Assuming that different sizes of room will have different prices.
     @guests = []
     @playlist = []
   end
@@ -47,7 +47,7 @@ class Room
     end
   end
 
-  def search_by_artist(searched_artist)
+  def search_by_artist(searched_artist) # Not necessary for the task but I felt like coding it up in case I wanted to allow Guests to have favourite artists as well.
     return @playlist.select { |song| song.artist == searched_artist }
   end
 

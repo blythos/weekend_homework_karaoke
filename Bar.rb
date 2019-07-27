@@ -13,5 +13,4 @@ class Bar
     end
   end
 
-
 end
