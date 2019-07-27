@@ -11,7 +11,10 @@ class TestRoom < MiniTest::Test
     @room = Room.new("Aztec Suite", 3, 20)
     @guest1 = Guest.new("Kyle", 10, "The Birdie Song")
     @guest2 = Guest.new("Kev", 30, "My Heart Will Go On")
+    @guest3 = Guest.new("Stephen", 40, "A Little Bit Alexis")
     @song1 = Song.new("Annie Murphy", "A Little Bit Alexis")
+    @guests = [@guest1, @guest2, @guest3]
+    @guests.each { |guest| @room.add_guest(guest) }
   end
 
   def test_get_room_name()
@@ -19,15 +22,12 @@ class TestRoom < MiniTest::Test
   end
 
   def test_add_guest()
-    @room.add_guest(@guest1)
-    assert_equal(1, @room.guests_amount)
+    assert_equal(3, @room.guests_amount)
   end
 
   def test_remove_guest()
-    @room.add_guest(@guest1)
-    @room.add_guest(@guest2)
     @room.remove_guest(@guest1)
-    assert_equal(1, @room.guests_amount)
+    assert_equal(2, @room.guests_amount)
   end
 
   def test_songs_amount()
@@ -44,7 +44,6 @@ class TestRoom < MiniTest::Test
   end
 
   def test_check_in__returns_true()
-    @room.add_guest(@guest1)
     assert_equal(true, @room.check_in)
   end
 
