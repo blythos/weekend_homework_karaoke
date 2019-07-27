@@ -13,8 +13,8 @@ class Guest
   end
 
   def fav_song(room)
-    for song in room.songs
-      if song.title == @fav_song  
+    for song in room.playlist
+      if song.title == @fav_song
         return "Yay! My fave!"
       end
     end

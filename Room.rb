@@ -1,13 +1,13 @@
 class Room
 
-  attr_reader :name, :capacity, :songs
+  attr_reader :name, :capacity, :playlist
 
   def initialize(name, capacity, fee)
     @name = name
     @capacity = capacity
     @fee = fee
     @guests = []
-    @songs = []
+    @playlist = []
   end
 
   def guests_amount()
@@ -22,12 +22,12 @@ class Room
     @guests.delete(guest)
   end
 
-  def songs_amount()
-    return @songs.size
+  def playlist_size()
+    return @playlist.size
   end
 
   def add_song(song)
-    @songs << song
+    @playlist << song
   end
 
   def check_in()
@@ -45,5 +45,13 @@ class Room
     else
       return false
     end
+  end
+
+  def search_by_artist(searched_artist)
+    return @playlist.select { |song| song.artist == searched_artist }
+  end
+
+  def search_by_title(searched_title)
+    return @playlist.select { | song| song.title == searched_title }
   end
 end
