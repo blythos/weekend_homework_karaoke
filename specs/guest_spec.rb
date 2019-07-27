@@ -12,7 +12,7 @@ class TestGuest < MiniTest::Test
     @song2 = Song.new("Myss Keta", "Una Donna Che Conta")
     @song3 = Song.new("Ashley O", "Right Where I Belong")
     @song4 = Song.new("Ashley O", "On A Roll")
-    @playlist [@song1, @song2, @song3, @song4]
+    @playlist = [@song1, @song2, @song3, @song4]
     @guest1 = Guest.new("Stephen", 50, @song1)
     @guest2 = Guest.new("Kev", 30, @song2)
     @room = Room.new("Aztec Suite", 3, 20)

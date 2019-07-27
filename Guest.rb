@@ -13,8 +13,8 @@ class Guest
   end
 
   def fav_song(room)
-    song_list = room.search_by_title(@fav_song)
-    if song_list.include? @fav_song = true
+    song_list = room.search_by_title(@fav_song.title)
+    if song_list.include? @fav_song
       return "Yay! My fave!"
     else
       return "Meh."
