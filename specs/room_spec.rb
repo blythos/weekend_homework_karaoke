@@ -47,6 +47,11 @@ class TestRoom < MiniTest::Test
     assert_equal(true, @room.check_in)
   end
 
+  def test_check_in__returns_false()
+    @room.add_guest(@guest1)
+    assert_equal(false, @room.check_in)
+  end
+
   def test_pay_entry_fee__return_false()
     assert_equal(false, @room.pay_entry_fee(@guest1))
   end
